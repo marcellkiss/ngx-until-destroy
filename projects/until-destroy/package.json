@@ -1,9 +1,8 @@
 {
-  "name": "until-destroy",
-  "version": "0.0.1",
+  "name": "ngx-until-destroy",
+  "version": "0.1.2",
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0"
+    "rxjs": "^7.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

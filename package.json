@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "pub": "cd projects/until-destroy && npm version patch && ng build until-destroy && cd ../../dist/until-destroy && npm publish"
   },
   "private": true,
   "dependencies": {
