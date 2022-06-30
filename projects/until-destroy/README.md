@@ -1,24 +1,38 @@
-# UntilDestroy
+# ngx-until-destroy
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+Reduce your boilerplate code and unsubscribe your RxJS observables with ease - within your Angular components.
 
-## Code scaffolding
+## Getting started
 
-Run `ng generate component component-name --project until-destroy` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project until-destroy`.
-> Note: Don't forget to add `--project until-destroy` or else it will be added to the default project in your `angular.json` file. 
+Get started in 3 steps:
 
-## Build
+- `npm i ngx-until-destroy`
+- Decorate your component with `@WithDestroy$()`
+- Use `.pipe(untilDestroy$(this))` before `.subscribe(...) `
 
-Run `ng build until-destroy` to build the project. The build artifacts will be stored in the `dist/` directory.
+And voilà, you don't have to take care of unsubscribing anymore. Your subscription exists as long as your component exists.
 
-## Publishing
+## Example
 
-After building your library with `ng build until-destroy`, go to the dist folder `cd dist/until-destroy` and run `npm publish`.
+```typescript
+@WithDestroy$()
+@Component({...})
+export class ExampleComponent {
+  ...
+  someObservable$.pipe(untilDestroy$(this)).subscribe(...)
+}
+```
 
-## Running unit tests
+## How it works
 
-Run `ng test until-destroy` to execute the unit tests via [Karma](https://karma-runner.github.io).
+What happens in the background is pretty simple.
 
-## Further help
+`@WithDestroy$()` decorates your component in a way, that it will have a class variable named `$destroy`, it's a simple RxJS Subject, which emits a new value, when the component is destroyed - by extending `ngOnDestroy()`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`untilDestroy$(this)` is simply returning `takeUntil(this.destroy$)`, so your subscription is going to be active just until your component is destroyed. No need for extra boilerplate code or unsubscribing manually.
+
+## Contributing
+
+This project was created with @angular/cli, feel free to clone it, have a look at it, make changes and / or open a Pull Request.
+
+In case you have any questions, problems or feature requests, feel free to [open an issue on GitHub](https://github.com/marcellkiss/ngx-until-destroy/issues).
