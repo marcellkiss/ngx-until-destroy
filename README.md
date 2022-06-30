@@ -1,27 +1,38 @@
-# NgxUntilDestroy
+# ngx-until-destroy
+
+Reduce your boilerplate code and unsubscribe your RxJS observables with ease - within your Angular components.
+
+## Getting started
+
+1. `npm i ngx-until-destroy`
+2. Decorate your component with `@WithDestroy$()`
+3. Use `.pipe(untilDestroy$(this))` before `.subscribe(...) `
+
+And voilà, you don't have to take care of unsubscribing anymore. Your subscription exists as long as your component exists.
+
+## Example
+
+```typescript
+@WithDestroy$()
+@Component({...})
+export class ExampleComponent {
+  ...
+  someObservable$.pipe(untilDestroy$(this)).subscribe(...)
+}
+```
+
+## How it works
+
+What happens in the background is pretty simple.
+
+`@WithDestroy$()` decorates your component in a way, that it will have a class variable named `$destroy`, it's a simple RxJS Subject, which emits a new value, when the component is destroyed - by extending `ngOnDestroy()`.
+
+`untilDestroy$(this)` is simply returning `takeUntil(this.destroy$)`, so your subscription is going to be active just until your component is destroyed. No need for extra boilerplate code or unsubscribing manually.
+
+## Contributing
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
 
-## Development server
+Feel free to clone the project, have a look at it, make changes and / or open a Pull Request.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+In case you have any questions, problems or feature requests, feel free to [open an issue on GitHub](https://github.com/marcellkiss/ngx-until-destroy/issues).
