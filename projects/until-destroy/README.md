@@ -4,11 +4,9 @@ Reduce your boilerplate code and unsubscribe your RxJS observables with ease - w
 
 ## Getting started
 
-Get started in 3 steps:
-
-- `npm i ngx-until-destroy`
-- Decorate your component with `@WithDestroy$()`
-- Use `.pipe(untilDestroy$(this))` before `.subscribe(...) `
+1. `npm i ngx-until-destroy`
+2. Decorate your component with `@WithDestroy$()`
+3. Use `.pipe(untilDestroy$(this))` before `.subscribe(...) `
 
 And voilà, you don't have to take care of unsubscribing anymore. Your subscription exists as long as your component exists.
 
@@ -33,6 +31,8 @@ What happens in the background is pretty simple.
 
 ## Contributing
 
-This project was created with @angular/cli, feel free to clone it, have a look at it, make changes and / or open a Pull Request.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+
+Feel free to clone the project, have a look at it, make changes and / or open a Pull Request.
 
 In case you have any questions, problems or feature requests, feel free to [open an issue on GitHub](https://github.com/marcellkiss/ngx-until-destroy/issues).

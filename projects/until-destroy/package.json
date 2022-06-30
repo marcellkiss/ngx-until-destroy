@@ -1,6 +1,6 @@
 {
   "name": "ngx-until-destroy",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "peerDependencies": {
     "rxjs": "^7.0.0"
   },
