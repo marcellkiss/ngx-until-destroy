@@ -13,7 +13,19 @@
     "type": "git",
     "url": "https://github.com/marcellkiss/ngx-until-destroy"
   },
-  "private": true,
+  "keywords": [
+    "unsubscribe",
+    "takeUntil",
+    "onDestroy",
+    "RxJs",
+    "Angular"
+  ],
+  "author": "Marcell Kiss <hello@marcell.tech> (https://marcell.tech/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcellkiss/ngx-until-destroy/issues"
+  },
+  "homepage": "https://github.com/marcellkiss/ngx-until-destroy",
   "dependencies": {
     "@angular/animations": "^14.0.0",
     "@angular/common": "^14.0.0",
