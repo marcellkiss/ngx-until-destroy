@@ -9,6 +9,10 @@
     "test": "ng test",
     "pub": "cd projects/until-destroy && npm version patch && ng build until-destroy --configuration production && cd ../../dist/until-destroy && npm publish"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcellkiss/ngx-until-destroy"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.0",
