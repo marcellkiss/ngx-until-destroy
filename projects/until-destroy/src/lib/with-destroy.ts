@@ -15,12 +15,10 @@ export function WithDestroy$(options?: { id: string }): ClassDecorator {
       ngOnDestroy && ngOnDestroy.call(this);
 
       // Look for destroy$ subject on the instance
-      if (!this.destroy$) {
-        throw new Error(
-          `Decorate your component with @WithDestroy$() to be able to use untilDestroy$`
-        );
+      if (this.destroy$) {
+        this.destroy$.next();
+        this.destroy$.complete();
       }
-      this.destroy$.next();
     };
   };
 }

@@ -1,7 +1,7 @@
 {
   "name": "ngx-until-destroy",
   "description": "Simplest way to unsubscribe your RxJS observables automatically when your Angular component gets destroyed",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "repository": {
     "type": "git",
     "url": "https://github.com/marcellkiss/ngx-until-destroy"
