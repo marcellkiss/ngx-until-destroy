@@ -1,12 +1,11 @@
-import { MonoTypeOperatorFunction, takeUntil } from 'rxjs';
+import { OperatorFunction, Subject, takeUntil } from 'rxjs';
 
 export function untilDestroy$<T>(
   componentInstance: any
-): MonoTypeOperatorFunction<T> {
+): OperatorFunction<T, T> {
   if (!componentInstance.destroy$) {
-    throw new Error(
-      `Decorate your component with @WithDestroy$() to be able to use untilDestroy$`
-    );
+    componentInstance.destroy$ = new Subject<void>();
   }
+
   return takeUntil(componentInstance.destroy$);
 }
